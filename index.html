@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Through Time: A History of Anime</title>
+  <meta name="description" content="An interactive timeline of anime, from the first Japanese animated shorts in 1917 to record box offices in 2025, built with HTML and CSS only.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f3f7fc" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1526" media="(prefers-color-scheme: dark)">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  
+  <header class="site-header" id="top">
+    <div class="site-header__inner">
+      <h1>Through Time</h1>
+      <p class="site-header__lede">A history of anime, from a two-minute sword gag in 1917 to a record ¥3.84 trillion market in 2024.</p>
+      <nav class="era-index" aria-label="Jump to an era">
+        <ol>
+          <li data-era="origins">
+            <a href="#origins"><span class="era-index__name">Origins</span><span class="era-index__range">1917 to 1958</span></a>
+          </li>
+          <li data-era="television">
+            <a href="#television"><span class="era-index__name">Television</span><span class="era-index__range">1963 to 1979</span></a>
+          </li>
+          <li data-era="home-video">
+            <a href="#home-video"><span class="era-index__name">Home Video</span><span class="era-index__range">1983 to 1988</span></a>
+          </li>
+          <li data-era="breakthrough">
+            <a href="#breakthrough"><span class="era-index__name">Breakthrough</span><span class="era-index__range">1995 to 2001</span></a>
+          </li>
+          <li data-era="digital">
+            <a href="#digital"><span class="era-index__name">Going Digital</span><span class="era-index__range">2006 to 2016</span></a>
+          </li>
+          <li data-era="records">
+            <a href="#records"><span class="era-index__name">Record Years</span><span class="era-index__range">2020 to 2025</span></a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <div class="timeline" id="timeline">
+      <section class="era" id="origins" data-era="origins" aria-labelledby="origins-title">
+        <header class="era__header">
+          <h2 id="origins-title">Origins</h2>
+          <p class="era__range"><time datetime="1917">1917</time> to <time datetime="1958">1958</time></p>
+        </header>
+        
+        <p class="era__intro">Before anyone said "anime", Japanese animators were testing the medium in silent shorts, then in a wartime feature, then in a colour film made to rival Disney.</p>
+        
+        <ol class="milestones">
+          <li class="milestone" data-year="1917">
+            <article class="card" aria-labelledby="title-1917">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="1917">1917</time></p>
+                <h3 id="title-1917">The first Japanese animated shorts</h3>
+                <p class="card__native"><span lang="ja">塙凹内名刀之巻</span> (Namakura Gatana)</p>
+              </header>
+              
+              <figure class="media">
+                <!-- Replace .placeholder with: <img src="…" alt="…" width="1600" height="900" loading="lazy"> -->
+                <div class="placeholder" role="img" aria-label="Image placeholder: a frame from Namakura Gatana"><span>Image placeholder</span></div>
+                <figcaption>A frame from Namakura Gatana, 1917.</figcaption>
+              </figure>
+              
+              <p>In 1917 Ōten Shimokawa, Seitarō Kitayama and Jun'ichi Kōuchi each released animated shorts, the earliest known in Japan. Most are lost. Kōuchi's two-minute Namakura Gatana, about a samurai and his useless sword, survived: it turned up at an Osaka antique market and was announced in 2008.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Oldest survivor</dt>
+                  <dd>Namakura Gatana (The Dull Sword), by Jun'ichi Kōuchi</dd>
+                  <dt>Length</dt>
+                  <dd>About two minutes</dd>
+                  <dt>Rediscovered</dt>
+                  <dd>At an Osaka antique market, announced in 2008</dd>
+                  <dt>Who was first</dt>
+                  <dd>Disputed, because sources give conflicting premiere dates</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://en.wikipedia.org/wiki/List_of_anime_by_release_date_(pre-1939)">Wikipedia</a>,
+                  <a href="https://www.animenewsnetwork.com/news/2008-03-27/two-90-year-old-anime-films-discovered">Anime News Network</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="1945">
+            <article class="card" aria-labelledby="title-1945">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="1945-04-12">12 April 1945</time></p>
+                <h3 id="title-1945">Momotaro, Sacred Sailors</h3>
+                <p class="card__native"><span lang="ja">桃太郎 海の神兵</span> (Momotarō: Umi no Shinpei)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: a frame from Momotaro, Sacred Sailors"><span>Image placeholder</span></div>
+                <figcaption>A frame from Momotaro, Sacred Sailors, 1945.</figcaption>
+              </figure>
+              
+              <p>Mitsuyo Seo's Momotaro, Sacred Sailors was the first feature-length animated film made in Japan. The Navy commissioned it as wartime propaganda, and it opened four months before the war ended. Osamu Tezuka later said it moved him to tears and made him want to animate.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Director</dt>
+                  <dd>Mitsuyo Seo</dd>
+                  <dt>Studio</dt>
+                  <dd>Shōchiku Dōga Kenkyūsho</dd>
+                  <dt>Length</dt>
+                  <dd>74 minutes</dd>
+                  <dt>Purpose</dt>
+                  <dd>Propaganda ordered by the Navy, aimed at children</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://en.wikipedia.org/wiki/Momotaro:_Sacred_Sailors">Wikipedia</a>,
+                  <a href="https://www.festival-cannes.com/en/2016/momotaro-where-japanese-animation-began/">Cannes Film Festival</a>,
+                  <a href="https://www.cubed3.com/features/anime-reviews/momotaro-sacred-sailors">Cubed3</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="1958">
+            <article class="card" aria-labelledby="title-1958">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="1958">1958</time></p>
+                <h3 id="title-1958">Hakujaden, the first colour feature</h3>
+                <p class="card__native"><span lang="ja">白蛇伝</span> (The Tale of the White Serpent)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: a frame from Hakujaden"><span>Image placeholder</span></div>
+                <figcaption>A frame from Hakujaden, 1958.</figcaption>
+              </figure>
+              
+              <p>Toei Animation's Hakujaden retold a Chinese legend about a white snake who becomes a woman, and it was Japan's first full-colour animated feature. Toei made it to compete with Disney. A young Hayao Miyazaki saw it and later wrote that it made him choose animation.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>Toei Animation</dd>
+                  <dt>Director</dt>
+                  <dd>Taiji Yabushita</dd>
+                  <dt>Based on</dt>
+                  <dd>The Chinese Legend of the White Snake</dd>
+                  <dt>In the U.S.</dt>
+                  <dd>1961, as Panda and the Magic Serpent</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://www.denofgeek.com/movies/hayao-miyazakis-path-to-studio-ghibli">Den of Geek</a>,
+                  <a href="https://filmthreat.com/uncategorized/the-bootleg-files-hakujaden/">Film Threat</a>,
+                  <a href="https://www.festival-cannes.com/en/f/hakujaden/">Cannes Film Festival</a>
+                </p>
+              </details>
+            </article>
+          </li>
+        </ol>
+      </section>
+      
+      <section class="era" id="television" data-era="television" aria-labelledby="television-title">
+        <header class="era__header">
+          <h2 id="television-title">Television</h2>
+          <p class="era__range"><time datetime="1963">1963</time> to <time datetime="1979">1979</time></p>
+        </header>
+        
+        <p class="era__intro">TV made animation a weekly job. Budgets were small and schedules were brutal, and the shortcuts crews invented became part of how anime looks.</p>
+        
+        <ol class="milestones">
+          <li class="milestone" data-year="1963">
+            <article class="card" aria-labelledby="title-1963">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="1963-01-01">1 January 1963</time></p>
+                <h3 id="title-1963">Astro Boy arrives on television</h3>
+                <p class="card__native"><span lang="ja">鉄腕アトム</span> (Tetsuwan Atom)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: Astro Boy in the 1963 series"><span>Image placeholder</span></div>
+                <figcaption>Astro Boy in the 1963 television series.</figcaption>
+              </figure>
+              
+              <p>Osamu Tezuka's Astro Boy premiered on Fuji TV on New Year's Day 1963 and is called the first popular anime television series. Mushi Production made it on a tight weekly schedule, with cost-saving shortcuts that became a template for TV anime.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>Mushi Production</dd>
+                  <dt>Network</dt>
+                  <dd>Fuji TV</dd>
+                  <dt>Based on</dt>
+                  <dd>Osamu Tezuka's manga</dd>
+                  <dt>Original run</dt>
+                  <dd>1 January 1963 to 31 December 1966</dd>
+                </dl>
+                <p class="source">
+                  Source:
+                  <a href="https://en.wikipedia.org/wiki/Astro_Boy_(1963_TV_series)">Wikipedia</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="1965">
+            <article class="card" aria-labelledby="title-1965">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="1965-10-06">6 October 1965</time></p>
+                <h3 id="title-1965">Jungle Emperor brings colour to TV</h3>
+                <p class="card__native"><span lang="ja">ジャングル大帝</span> (Kimba the White Lion)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: Leo the white lion from Jungle Emperor"><span>Image placeholder</span></div>
+                <figcaption>Leo the white lion, known abroad as Kimba.</figcaption>
+              </figure>
+              
+              <p>Jungle Emperor, known abroad as Kimba the White Lion, was the first full-colour anime TV series. Mushi Production adapted Tezuka's manga with part of the money coming from the American network NBC, and the show reached U.S. screens in 1966.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>Mushi Production</dd>
+                  <dt>Network</dt>
+                  <dd>Fuji TV</dd>
+                  <dt>First season</dt>
+                  <dd>52 episodes, October 1965 to September 1966</dd>
+                  <dt>Partly funded by</dt>
+                  <dd>NBC, which distributed an English version from 1966</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://en.wikipedia.org/wiki/Kimba_the_White_Lion">Wikipedia</a>,
+                  <a href="https://icv2.com/print/article/2307">ICv2</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="1979">
+            <article class="card" aria-labelledby="title-1979">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="1979-04-07">7 April 1979</time></p>
+                <h3 id="title-1979">Mobile Suit Gundam</h3>
+                <p class="card__native"><span lang="ja">機動戦士ガンダム</span> (Kidō Senshi Gundam)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: the Gundam mobile suit"><span>Image placeholder</span></div>
+                <figcaption>The Gundam mobile suit from the 1979 series.</figcaption>
+              </figure>
+              
+              <p>Gundam set its giant robots inside a war story with soldiers on both sides. Low ratings cut the TV run to 43 episodes, but Bandai's Gunpla model kits arrived in 1980 and the series was recut into films from 1981. It grew into one of anime's biggest franchises.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>Sunrise</dd>
+                  <dt>Director</dt>
+                  <dd>Yoshiyuki Tomino</dd>
+                  <dt>Original run</dt>
+                  <dd>7 April 1979 to 26 January 1980</dd>
+                  <dt>Episodes</dt>
+                  <dd>43, ended early because of low ratings</dd>
+                  <dt>Merchandise</dt>
+                  <dd>Bandai's Gunpla kits, from 1980</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://nostalgiaking.com/2019/03/31/gundam-79-40th-anniversary/">Nostalgia King</a>,
+                  <a href="https://en.wikipedia.org/wiki/Gunpla">Wikipedia</a>
+                </p>
+              </details>
+            </article>
+          </li>
+        </ol>
+      </section>
+      
+      <section class="era" id="home-video" data-era="home-video" aria-labelledby="home-video-title">
+        <header class="era__header">
+          <h2 id="home-video-title">Home Video</h2>
+          <p class="era__range"><time datetime="1983">1983</time> to <time datetime="1988">1988</time></p>
+        </header>
+        
+        <p class="era__intro">Videotape opened a second market for anime, and in the same few years a new studio and a very expensive film showed what Japanese animation could be.</p>
+        
+        <ol class="milestones">
+          <li class="milestone" data-year="1983">
+            <article class="card" aria-labelledby="title-1983">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="1983-12">December 1983</time></p>
+                <h3 id="title-1983">Dallos, the first OVA</h3>
+                <p class="card__native"><span lang="ja">ダロス</span> (Darosu)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: a scene from Dallos"><span>Image placeholder</span></div>
+                <figcaption>A scene from Dallos, 1983.</figcaption>
+              </figure>
+              
+              <p>Dallos, a science-fiction story about a rebellion on the Moon, was the first original video animation: a series made to be sold on tape instead of aired. It was Mamoru Oshii's first work as an independent director, and the OVA format gave studios more room to spend than television did.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>Pierrot</dd>
+                  <dt>Director</dt>
+                  <dd>Mamoru Oshii</dd>
+                  <dt>Format</dt>
+                  <dd>Four 30-minute episodes, sold on video</dd>
+                  <dt>Release order</dt>
+                  <dd>Episode two came out first, in December 1983</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://en.wikipedia.org/wiki/Dallos">Wikipedia</a>,
+                  <a href="https://www.animenewsnetwork.com/news/2022-11-21/1st-ever-ova-dallos-gets-blu-ray-disc-release-in-march-2023/.192119">Anime News Network</a>,
+                  <a href="https://cartoonresearch.com/index.php/forgotten-anime-43-dallos-1983/">Cartoon Research</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="1985">
+            <article class="card" aria-labelledby="title-1985">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="1985-06-15">15 June 1985</time></p>
+                <h3 id="title-1985">Studio Ghibli is founded</h3>
+                <p class="card__native"><span lang="ja">スタジオジブリ</span> (Sutajio Jiburi)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: Studio Ghibli artwork"><span>Image placeholder</span></div>
+                <figcaption>Studio Ghibli, founded in 1985.</figcaption>
+              </figure>
+              
+              <p>After the success of Nausicaä of the Valley of the Wind in 1984, Hayao Miyazaki and Isao Takahata founded Studio Ghibli with producer Toshio Suzuki, backed by the publisher Tokuma Shoten. Its films would go on to set box-office records and win Oscars.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Founders</dt>
+                  <dd>Hayao Miyazaki, Isao Takahata and Toshio Suzuki</dd>
+                  <dt>Backer</dt>
+                  <dd>Tokuma Shoten</dd>
+                  <dt>Came after</dt>
+                  <dd>Nausicaä of the Valley of the Wind, 1984</dd>
+                  <dt>First Ghibli film</dt>
+                  <dd>Castle in the Sky, 1986</dd>
+                </dl>
+                <p class="source">
+                  Source:
+                  <a href="https://en.wikipedia.org/wiki/Studio_Ghibli">Wikipedia</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="1988">
+            <article class="card" aria-labelledby="title-1988">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="1988-07-16">16 July 1988</time></p>
+                <h3 id="title-1988">Akira</h3>
+                <p class="card__native"><span lang="ja">アキラ</span> (Akira)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: a scene from Akira"><span>Image placeholder</span></div>
+                <figcaption>A scene from Akira, 1988.</figcaption>
+              </figure>
+              
+              <p>Katsuhiro Otomo's Akira cost more than ¥1 billion, the biggest budget for an anime film up to that point. Its overseas releases made it a landmark: the UK video edition from Island Records is credited with starting Britain's anime boom, and U.S. distributors followed.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Director</dt>
+                  <dd>Katsuhiro Otomo</dd>
+                  <dt>Budget</dt>
+                  <dd>Over ¥1 billion, pooled by the Akira Committee</dd>
+                  <dt>Japan</dt>
+                  <dd>16 July 1988</dd>
+                  <dt>United States</dt>
+                  <dd>Christmas Day 1989, wider in 1990</dd>
+                </dl>
+                <p class="source">
+                  Source:
+                  <a href="https://features.japantimes.co.jp/akira-new/">The Japan Times</a>
+                </p>
+              </details>
+            </article>
+          </li>
+        </ol>
+      </section>
+      
+      <section class="era" id="breakthrough" data-era="breakthrough" aria-labelledby="breakthrough-title">
+        <header class="era__header">
+          <h2 id="breakthrough-title">Breakthrough</h2>
+          <p class="era__range"><time datetime="1995">1995</time> to <time datetime="2001">2001</time></p>
+        </header>
+        
+        <p class="era__intro">In a few years anime became a national and international event: a TV series that sparked public debate, and films that broke records and won awards.</p>
+        
+        <ol class="milestones">
+          <li class="milestone" data-year="1995">
+            <article class="card" aria-labelledby="title-1995">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="1995-10-04">4 October 1995</time></p>
+                <h3 id="title-1995">Neon Genesis Evangelion</h3>
+                <p class="card__native"><span lang="ja">新世紀エヴァンゲリオン</span> (Shin Seiki Evangelion)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: an Evangelion unit from the series"><span>Image placeholder</span></div>
+                <figcaption>An Evangelion unit from the 1995 series.</figcaption>
+              </figure>
+              
+              <p>Hideaki Anno's Evangelion began on TV Tokyo in October 1995. A giant-robot story about teenage pilots, it became a social phenomenon well beyond anime fans and is credited with pulling the industry out of a slump.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>Gainax, with Tatsunoko Production</dd>
+                  <dt>Director</dt>
+                  <dd>Hideaki Anno</dd>
+                  <dt>Network</dt>
+                  <dd>TV Tokyo</dd>
+                  <dt>Original run</dt>
+                  <dd>4 October 1995 to 27 March 1996</dd>
+                </dl>
+                <p class="source">
+                  Source:
+                  <a href="https://en.wikipedia.org/wiki/Neon_Genesis_Evangelion">Wikipedia</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="1997">
+            <article class="card" aria-labelledby="title-1997">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="1997-07-12">12 July 1997</time></p>
+                <h3 id="title-1997">Princess Mononoke breaks the record</h3>
+                <p class="card__native"><span lang="ja">もののけ姫</span> (Mononoke-hime)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: San and the wolves from Princess Mononoke"><span>Image placeholder</span></div>
+                <figcaption>A scene from Princess Mononoke, 1997.</figcaption>
+              </figure>
+              
+              <p>Hayao Miyazaki's Princess Mononoke was the most expensive Japanese animated film made up to then, at ¥2.35 billion. It overtook E.T. as the highest-grossing film in Japan's history, and it was the first animated film to win the Japan Academy Prize for Picture of the Year.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>Studio Ghibli</dd>
+                  <dt>Director</dt>
+                  <dd>Hayao Miyazaki</dd>
+                  <dt>Budget</dt>
+                  <dd>¥2.35 billion</dd>
+                  <dt>United States</dt>
+                  <dd>29 October 1999, through Miramax</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://en.wikipedia.org/wiki/Princess_Mononoke">Wikipedia</a>,
+                  <a href="https://web.library.yale.edu/film/notes/fn00016">Yale Film Archive</a>,
+                  <a href="https://nausicaa.net/miyazaki/mh/impressions4.html">Nausicaa.Net</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="2001">
+            <article class="card" aria-labelledby="title-2001">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="2001">2001</time></p>
+                <h3 id="title-2001">Spirited Away wins the Oscar</h3>
+                <p class="card__native"><span lang="ja">千と千尋の神隠し</span> (Sen to Chihiro no Kamikakushi)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: Chihiro in the bathhouse from Spirited Away"><span>Image placeholder</span></div>
+                <figcaption>A scene from Spirited Away, 2001.</figcaption>
+              </figure>
+              
+              <p>Spirited Away opened in Japan in 2001, shared the Golden Bear at the 2002 Berlin International Film Festival, and won the 2003 Academy Award for Best Animated Feature. It was the first hand-drawn, anime and non-English-language film to win that category, and it held Japan's box-office record for almost two decades.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>Studio Ghibli</dd>
+                  <dt>Director</dt>
+                  <dd>Hayao Miyazaki</dd>
+                  <dt>Berlin</dt>
+                  <dd>Golden Bear, 2002, shared</dd>
+                  <dt>Academy Awards</dt>
+                  <dd>Best Animated Feature, 75th ceremony, 2003</dd>
+                  <dt>Japan record</dt>
+                  <dd>Held until Demon Slayer passed it in 2020</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://en.wikipedia.org/wiki/List_of_accolades_received_by_Spirited_Away">Wikipedia</a>,
+                  <a href="https://www.cartoonbrew.com/anime/demon-slayer-becomes-top-grossing-film-in-japanese-history-beating-spirited-away-200300.html">Cartoon Brew</a>
+                </p>
+              </details>
+            </article>
+          </li>
+        </ol>
+      </section>
+      
+      <section class="era" id="digital" data-era="digital" aria-labelledby="digital-title">
+        <header class="era__header">
+          <h2 id="digital-title">Going Digital</h2>
+          <p class="era__range"><time datetime="2006">2006</time> to <time datetime="2016">2016</time></p>
+        </header>
+        
+        <p class="era__intro">Hand-painted cels disappeared, streaming arrived, and anime found audiences far beyond Japan.</p>
+        
+        <ol class="milestones">
+          <li class="milestone" data-year="2006">
+            <article class="card" aria-labelledby="title-2006">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="2006-05-14">14 May 2006</time></p>
+                <h3 id="title-2006">Crunchyroll launches</h3>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: the early Crunchyroll website"><span>Image placeholder</span></div>
+                <figcaption>An early screenshot of the Crunchyroll website.</figcaption>
+              </figure>
+              
+              <p>Four Berkeley graduates launched Crunchyroll as a site hosting East Asian shows, many with fan-made subtitles. It later moved to legal licensing deals and grew into a major anime streaming service. Sony completed its purchase of the company in 2021.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Founders</dt>
+                  <dd>Kun Gao, James Lin, Vu Nguyen and Brandon Ooi</dd>
+                  <dt>Started as</dt>
+                  <dd>A site hosting fan-subtitled shows</dd>
+                  <dt>Went legal</dt>
+                  <dd>Through licensing deals, with a January 2009 pledge to host only licensed content</dd>
+                  <dt>Sold to Sony</dt>
+                  <dd>Completed 9 August 2021, for US$1.175 billion</dd>
+                </dl>
+                <p class="source">
+                  Source:
+                  <a href="https://en.wikipedia.org/wiki/Crunchyroll">Wikipedia</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="2013">
+            <article class="card" aria-labelledby="title-2013">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="2013-09-29">29 September 2013</time></p>
+                <h3 id="title-2013">The last cel episode airs</h3>
+                <p class="card__native"><span lang="ja">サザエさん</span> (Sazae-san)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: the Fuguta family from Sazae-san"><span>Image placeholder</span></div>
+                <figcaption>The Fuguta family from Sazae-san.</figcaption>
+              </figure>
+              
+              <p>Sazae-san, on air since 1969, was the last Japanese TV anime still made on hand-painted cels. Its final cel episode aired on 29 September 2013, and the show has been fully digital since October. Most big studios had already switched in the 1990s.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Network</dt>
+                  <dd>Fuji TV</dd>
+                  <dt>Studio</dt>
+                  <dd>Eiken</dd>
+                  <dt>On air since</dt>
+                  <dd>1969</dd>
+                  <dt>Last cel episode</dt>
+                  <dd>29 September 2013</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://soranews24.com/2018/09/13/commercial-for-obscure-car-part-marker-may-become-a-milestone-in-japanese-animation/">SoraNews24</a>,
+                  <a href="https://gulfnews.com/entertainment/longest-running-cartoon-to-go-digital-in-japan-1.1236375">Gulf News</a>,
+                  <a href="https://animenewsnetwork.com/news/2007-08-29/sazae-san-is-last-tv-anime-using-cels-not-computers">Anime News Network</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="2016">
+            <article class="card" aria-labelledby="title-2016">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="2016-08-26">26 August 2016</time></p>
+                <h3 id="title-2016">Your Name. takes the world</h3>
+                <p class="card__native"><span lang="ja">君の名は。</span> (Kimi no Na wa.)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: Mitsuha and Taki from Your Name."><span>Image placeholder</span></div>
+                <figcaption>A scene from Your Name., 2016.</figcaption>
+              </figure>
+              
+              <p>Makoto Shinkai's Your Name. opened in Japan on 26 August 2016 and became the first anime film not directed by Miyazaki to pass ¥10 billion there. It grossed more than US$350 million worldwide, the highest total for an anime film at that time.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>CoMix Wave Films</dd>
+                  <dt>Director</dt>
+                  <dd>Makoto Shinkai</dd>
+                  <dt>Distributor in Japan</dt>
+                  <dd>Toho</dd>
+                  <dt>Japan record</dt>
+                  <dd>First non-Miyazaki anime to pass ¥10 billion</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://www.cartoonbrew.com/anime/name-becomes-first-non-miyazaki-anime-top-100-million-japan-143534.html">Cartoon Brew</a>,
+                  <a href="https://www.awn.com/news/makoto-shinkais-your-name-now-us-theaters">Animation World Network</a>
+                </p>
+              </details>
+            </article>
+          </li>
+        </ol>
+      </section>
+      
+      <section class="era" id="records" data-era="records" aria-labelledby="records-title">
+        <header class="era__header">
+          <h2 id="records-title">Record Years</h2>
+          <p class="era__range"><time datetime="2020">2020</time> to <time datetime="2025">2025</time></p>
+        </header>
+        
+        <p class="era__intro">Cinemas in Japan and abroad kept breaking records, Miyazaki won a second Oscar, and overseas fans now bring in more than half of the market.</p>
+        
+        <ol class="milestones">
+          <li class="milestone" data-year="2020">
+            <article class="card" aria-labelledby="title-2020">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="2020-10-16">16 October 2020</time></p>
+                <h3 id="title-2020">Mugen Train tops Japan's box office</h3>
+                <p class="card__native"><span lang="ja">劇場版「鬼滅の刃」無限列車編</span> (Mugen Ressha-hen)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: a scene from Demon Slayer: Mugen Train"><span>Image placeholder</span></div>
+                <figcaption>A scene from Demon Slayer: Mugen Train, 2020.</figcaption>
+              </figure>
+              
+              <p>Opening in the middle of the pandemic, Demon Slayer: Mugen Train passed Spirited Away in December 2020 to become the highest-grossing film in Japanese history, at ¥32.47 billion at that point. It also became the highest-grossing Japanese film worldwide, at about US$500 million.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>ufotable</dd>
+                  <dt>Director</dt>
+                  <dd>Haruo Sotozaki</dd>
+                  <dt>Passed Spirited Away</dt>
+                  <dd>December 2020, at ¥32.47 billion</dd>
+                  <dt>Worldwide</dt>
+                  <dd>About US$506.5 million by December 2022</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://www.cartoonbrew.com/anime/demon-slayer-becomes-top-grossing-film-in-japanese-history-beating-spirited-away-200300.html">Cartoon Brew</a>,
+                  <a href="https://www.guinnessworldrecords.com/world-records/72369-highest-grossing-japanese-animated-film">Guinness World Records</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="2024">
+            <article class="card" aria-labelledby="title-2024">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="2024-03-10">10 March 2024</time></p>
+                <h3 id="title-2024">The Boy and the Heron wins the Oscar</h3>
+                <p class="card__native"><span lang="ja">君たちはどう生きるか</span> (Kimitachi wa Dō Ikiru ka)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: the grey heron from The Boy and the Heron"><span>Image placeholder</span></div>
+                <figcaption>A scene from The Boy and the Heron, 2023.</figcaption>
+              </figure>
+              
+              <p>Hayao Miyazaki's The Boy and the Heron won Best Animated Feature at the 96th Academy Awards on 10 March 2024, his second Oscar after Spirited Away. It was also the first Oscar win for its U.S. distributor, GKIDS.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>Studio Ghibli</dd>
+                  <dt>Japan release</dt>
+                  <dd>14 July 2023</dd>
+                  <dt>U.S. release</dt>
+                  <dd>8 December 2023, through GKIDS</dd>
+                  <dt>Also won</dt>
+                  <dd>A Golden Globe and two Annie Awards</dd>
+                </dl>
+                <p class="source">
+                  Source:
+                  <a href="https://www.anitrendz.com/news/2024/03/10/hayao-miyazakis-the-boy-and-the-heron-wins-oscar-for-best-animated-feature-at-96th-academy-awards">AniTrendz</a>
+                </p>
+              </details>
+            </article>
+          </li>
+          
+          <li class="milestone" data-year="2025">
+            <article class="card" aria-labelledby="title-2025">
+              <header class="card__header">
+                <p class="card__meta"><time datetime="2025-07-18">18 July 2025</time></p>
+                <h3 id="title-2025">Infinity Castle becomes the biggest anime film</h3>
+                <p class="card__native"><span lang="ja">鬼滅の刃 無限城編</span> (Mugenjō-hen)</p>
+              </header>
+              
+              <figure class="media">
+                <div class="placeholder" role="img" aria-label="Image placeholder: a scene from Demon Slayer: Infinity Castle"><span>Image placeholder</span></div>
+                <figcaption>A scene from Demon Slayer: Infinity Castle, 2025.</figcaption>
+              </figure>
+              
+              <p>Demon Slayer: Infinity Castle opened in Japan on 18 July 2025 and reached ¥10 billion faster than Mugen Train had. After 31 days it stood fourth on Japan's all-time chart. By late September it had passed US$555 million worldwide, the highest total for any anime film.</p>
+              
+              <details>
+                <summary>Key facts</summary>
+                <dl class="facts">
+                  <dt>Studio</dt>
+                  <dd>ufotable</dd>
+                  <dt>After 31 days</dt>
+                  <dd>¥25.8 billion and 18.27 million tickets in Japan</dd>
+                  <dt>Worldwide</dt>
+                  <dd>More than US$555 million by 22 September 2025</dd>
+                  <dt>Note</dt>
+                  <dd>Totals kept growing after this date</dd>
+                </dl>
+                <p class="source">
+                  Sources:
+                  <a href="https://www.cartoonbrew.com/anime/demon-slayer-infinity-castle-breaks-records-becomes-highest-grossing-anime-film-ever-254769.html">Cartoon Brew</a>,
+                  <a href="https://www.cartoonbrew.com/feature-film/demon-slayer-infinity-castle-japan-box-office-252106.html">Cartoon Brew</a>
+                </p>
+              </details>
+            </article>
+          </li>
+        </ol>
+      </section>
+    </div>
+    
+    <section class="outro" aria-labelledby="outro-title">
+      <div class="outro__inner">
+        <h2 id="outro-title">Still being drawn</h2>
+        <p>In 2024 the anime market reached a record ¥3.84 trillion, and more than half of it came from outside Japan. The timeline stops at 2025, but the numbers keep moving.</p>
+        
+        <dl class="stats">
+          <div>
+            <dt>Anime market, 2024</dt>
+            <dd>¥3.84 trillion</dd>
+          </div>
+          <div>
+            <dt>Share earned overseas</dt>
+            <dd>56.5%</dd>
+          </div>
+        </dl>
+        
+        <p class="source">
+          Source: the Association of Japanese Animations' Anime Industry Report 2025, as reported by
+          <a href="https://www.animenewsnetwork.com/news/2025-10-30/global-anime-market-grew-15-percent-to-record-3.84-trillion-yen-in-2024/.230464">Anime News Network</a>
+          and <a href="https://automaton-media.com/en/news/overseas-anime-market-growth-continues-to-outpace-domestic-market-gap-in-revenue-expected-to-grow-industry-research-shows/">Automaton</a>.
+          The figure counts consumer spending on anime and related goods and licensing, not studio revenue alone.
+        </p>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>Built with HTML and CSS only. Type is Dela Gothic One and Zen Kaku Gothic New from Google Fonts.</p>
+      <p>The scroll-linked effects use <code>animation-timeline</code>. Browsers without it, and visitors who prefer reduced motion, get the finished page with no animation.</p>
+      <p>The images are placeholders.</p>
+    </div>
+    <div class="back-to-top">
+      <a href="#"></a>
+    </div>
+  </footer>
+</body>
+
+</html>

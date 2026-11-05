@@ -1,0 +1,838 @@
+ /*
+ Through Time: a history of anime, in HTML and CSS.
+ Light and dark follow the visitor's system setting.
+
+1. Tokens
+2. Reset and base
+3. Page header
+4. Timeline and spine
+5. Era headers and intros
+6. Milestones and cards
+7. Outro and footer
+8. Scroll-linked motion
+*/
+ 
+ 
+ /* TOKENS */
+ 
+ :root {
+   color-scheme: light dark;
+   
+   /* Typefaces */
+   --font-display: "Dela Gothic One", "Arial Black", "Hiragino Sans", system-ui, sans-serif;
+   --font-body: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+   
+   /* Type scale (fluid) */
+   --text-s: clamp(0.8125rem, 0.78rem + 0.15vw, 0.9rem);
+   --text-m: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+   --text-l: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+   --text-xl: clamp(1.6rem, 1.2rem + 1.8vw, 2.5rem);
+   --text-hero: clamp(2.75rem, 12vw, 9.5rem);
+   --text-year: clamp(3rem, 7.5vw, 7rem);
+   
+   /* Space scale */
+   --space-3xs: 0.25rem;
+   --space-2xs: 0.5rem;
+   --space-xs: 0.75rem;
+   --space-s: 1rem;
+   --space-m: 1.5rem;
+   --space-l: 2rem;
+   --space-xl: 3rem;
+   --space-2xl: 4.5rem;
+   --gutter: clamp(1rem, 4vw, 2.5rem);
+   --measure: 62ch;
+   --page-max: 76rem;
+   
+   /* Timeline geometry */
+   --bar-height: 3.5rem;
+   --spine-width: 4px;
+   --node-size: 1.25rem;
+   --outline: 2px;
+   --cel-offset: 0.5rem;
+   
+   /* Colour: light */
+   --bg: oklch(0.975 0.008 255);
+   --surface: oklch(1 0 0);
+   --surface-sunk: oklch(0.945 0.014 255);
+   --ink: oklch(0.25 0.045 268);
+   --ink-soft: oklch(0.42 0.04 268);
+   --line: oklch(0.3 0.05 268);
+   --track: oklch(0.78 0.025 262);
+   --tone: oklch(0.3 0.05 268 / 0.14);
+   --spine-fill: oklch(0.6 0.19 262);
+   --glow: oklch(0.65 0.19 262 / 0.5);
+   --focus: oklch(0.52 0.22 262);
+   --on-chip: oklch(1 0 0);
+   
+   /* Era colour recipe: each era only supplies --hue */
+   --accent-l: 0.6;
+   --accent-ink-l: 0.46;
+   --accent-c: 0.17;
+   --cel-l: 0.6;
+ }
+ 
+ @media (prefers-color-scheme: dark) {
+   :root {
+     --bg: oklch(0.2 0.035 268);
+     --surface: oklch(0.26 0.04 268);
+     --surface-sunk: oklch(0.225 0.038 268);
+     --ink: oklch(0.95 0.012 268);
+     --ink-soft: oklch(0.79 0.03 268);
+     --line: oklch(0.64 0.07 268);
+     --track: oklch(0.42 0.045 268);
+     --tone: oklch(0.8 0.05 268 / 0.17);
+     --spine-fill: oklch(0.8 0.14 225);
+     --glow: oklch(0.8 0.14 225 / 0.6);
+     --focus: oklch(0.82 0.14 225);
+     --on-chip: oklch(0.2 0.04 268);
+     
+     --accent-l: 0.78;
+     --accent-ink-l: 0.84;
+     --accent-c: 0.13;
+     --cel-l: 0.5;
+   }
+ }
+ 
+ [data-era] {
+   --accent: oklch(var(--accent-l) var(--accent-c) var(--hue));
+   --accent-ink: oklch(var(--accent-ink-l) var(--accent-c) var(--hue));
+   --accent-tint: color-mix(in oklab, var(--accent) 14%, var(--surface));
+   --cel: oklch(var(--cel-l) var(--accent-c) var(--hue));
+ }
+ 
+ [data-era="origins"] {
+   --hue: 85;
+ }
+ 
+ [data-era="television"] {
+   --hue: 205;
+ }
+ 
+ [data-era="home-video"] {
+   --hue: 145;
+ }
+ 
+ [data-era="breakthrough"] {
+   --hue: 25;
+ }
+ 
+ [data-era="digital"] {
+   --hue: 265;
+ }
+ 
+ [data-era="records"] {
+   --hue: 325;
+ }
+ 
+ 
+ /* 2. RESET AND BASE */
+ 
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+ 
+ * {
+   margin: 0;
+ }
+ 
+ html {
+   scroll-behavior: smooth;
+   scroll-padding-top: calc(var(--bar-height) + var(--space-s));
+   text-size-adjust: 100%;
+ }
+ 
+ body {
+   background: var(--bg);
+   color: var(--ink);
+   font: 400 var(--text-m) / 1.7 var(--font-body);
+   -webkit-font-smoothing: antialiased;
+   overflow-x: clip;
+ }
+ 
+ h1,
+ h2,
+ h3 {
+   font-family: var(--font-display);
+   font-weight: 400;
+   line-height: 1.1;
+   text-wrap: balance;
+ }
+ 
+ p {
+   max-width: var(--measure);
+   text-wrap: pretty;
+ }
+ 
+ a {
+   color: inherit;
+   text-decoration-thickness: 0.08em;
+   text-underline-offset: 0.2em;
+ }
+ 
+ :focus-visible {
+   outline: 3px solid var(--focus);
+   outline-offset: 3px;
+ }
+ 
+ @media (prefers-reduced-motion: reduce) {
+   html {
+     scroll-behavior: auto;
+   }
+ }
+ 
+ 
+ /* PAGE HEADER */
+ 
+ .site-header {
+   position: relative;
+   isolation: isolate;
+   padding: clamp(3rem, 9vw, 7rem) var(--gutter) clamp(2.5rem, 6vw, 4.5rem);
+   border-bottom: var(--outline) solid var(--line);
+ }
+ 
+ /* Screentone: the dot pattern manga uses for shading */
+ .site-header::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   z-index: -1;
+   background: radial-gradient(circle, var(--tone) 0 1.5px, transparent 1.8px) 0 0 / 11px 11px;
+   -webkit-mask-image: linear-gradient(200deg, #000 0%, transparent 65%);
+   mask-image: linear-gradient(200deg, #000 0%, transparent 65%);
+ }
+ 
+ .site-header__inner {
+   display: grid;
+   gap: var(--space-m);
+   max-width: var(--page-max);
+   margin-inline: auto;
+ }
+ 
+ .site-header h1 {
+   font-size: var(--text-hero);
+   line-height: 0.95;
+   letter-spacing: -0.01em;
+   text-shadow: 0.04em 0.04em 0 var(--spine-fill);
+   overflow-wrap: anywhere;
+ }
+ 
+ .site-header__lede {
+   max-width: 34ch;
+   font-size: var(--text-l);
+   line-height: 1.45;
+ }
+ 
+ 
+ .era-index ol {
+   display: grid;
+   grid-template-columns: minmax(0, 1fr);
+   gap: var(--space-xs) var(--space-s);
+   margin-block-start: var(--space-s);
+   padding: 0;
+   list-style: none;
+ }
+ 
+ @media (min-width: 40rem) {
+   .era-index ol {
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+   }
+ }
+ 
+ .era-index a {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: baseline;
+   justify-content: space-between;
+   gap: 0 var(--space-s);
+   height: 100%;
+   padding: var(--space-xs) var(--space-s);
+   background: var(--surface);
+   border: var(--outline) solid var(--line);
+   border-inline-start: 0.6rem solid var(--accent);
+   border-radius: 0.25rem;
+   text-decoration: none;
+ }
+ 
+ .era-index a:hover {
+   background: var(--accent-tint);
+ }
+ 
+ .era-index__name {
+   font-family: var(--font-display);
+   line-height: 1.2;
+ }
+ 
+ .era-index__range {
+   color: var(--ink-soft);
+   font-size: var(--text-s);
+ }
+ 
+ 
+ /* 4. TIMELINE AND SPINE */
+ 
+ .timeline {
+   --gap: clamp(1rem, 4vw, 3.5rem);
+   
+   position: relative;
+   max-width: var(--page-max);
+   margin-inline: auto;
+   padding-inline: var(--gutter);
+   counter-reset: frame;
+   view-timeline: --timeline block;
+ }
+ 
+ .timeline::before,
+ .timeline::after {
+   content: "";
+   position: absolute;
+   inset-block-start: 0;
+   inset-inline-start: calc(var(--gutter) + var(--node-size) / 2);
+   width: var(--spine-width);
+   margin-inline-start: calc(var(--spine-width) / -2);
+   border-radius: var(--spine-width);
+ }
+ 
+ .timeline::before {
+   inset-block-end: 0;
+   background: repeating-linear-gradient(to bottom, var(--track) 0 0.5rem, transparent 0.5rem 0.9rem);
+ }
+ 
+ .timeline::after {
+   height: 100%;
+   background: var(--spine-fill);
+   box-shadow: 0 0 1rem 0.15rem var(--glow);
+ }
+ 
+ @media (min-width: 52rem) {
+   
+   .timeline::before,
+   .timeline::after {
+     inset-inline-start: 50%;
+   }
+ }
+ 
+ 
+ /* 5. ERA HEADERS AND INTROS */
+ 
+ .era {
+   position: relative;
+   z-index: 1;
+   padding-block-end: var(--space-xl);
+ }
+ 
+ .era__header {
+   position: sticky;
+   inset-block-start: 0;
+   z-index: 5;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+   gap: var(--space-3xs) var(--space-s);
+   min-height: var(--bar-height);
+   margin-inline: calc(var(--gutter) * -1);
+   padding: var(--space-2xs) var(--gutter);
+   background: color-mix(in oklab, var(--bg) 86%, transparent);
+   border-block: var(--outline) solid var(--line);
+   -webkit-backdrop-filter: blur(0.6rem) saturate(1.4);
+   backdrop-filter: blur(0.6rem) saturate(1.4);
+ }
+ 
+ .era__header h2 {
+   padding: var(--space-3xs) var(--space-xs);
+   background: var(--accent-ink);
+   color: var(--on-chip);
+   border: var(--outline) solid var(--line);
+   border-radius: 0.2rem;
+   box-shadow: 0.2rem 0.2rem 0 var(--line);
+   font-size: var(--text-m);
+ }
+ 
+ .era__range {
+   color: var(--ink-soft);
+   font-size: var(--text-s);
+   font-variant-numeric: tabular-nums;
+ }
+ 
+ .era__intro {
+   margin-block-start: var(--space-xl);
+   margin-inline-start: calc(var(--node-size) + var(--space-s));
+   font-size: var(--text-l);
+   line-height: 1.5;
+ }
+ 
+ @media (min-width: 52rem) {
+   .era__intro {
+     max-width: 36ch;
+     margin-inline: auto;
+     padding: var(--space-s) var(--space-m);
+     background: var(--bg);
+     text-align: center;
+   }
+ }
+ 
+ 
+ /* 6. MILESTONS AND CARDS */
+ 
+ .milestones {
+   padding: 0;
+   list-style: none;
+ }
+ 
+ .milestone {
+   --card-col: 1;
+   --year-col: 3;
+   --year-align: start;
+   --connector-start: 100%;
+   --connector-end: auto;
+   --dir: 0;
+   
+   position: relative;
+   display: grid;
+   grid-template-columns: var(--node-size) minmax(0, 1fr);
+   gap: var(--space-xs) var(--space-s);
+   padding-block: var(--space-xl);
+   counter-increment: frame;
+   view-timeline: --milestone block;
+ }
+ 
+ /* Big year: a pseudo-element, so the real date lives once, in the card */
+ .milestone::before {
+   grid-column: 2;
+   grid-row: 1;
+   content: attr(data-year);
+   content: attr(data-year) / "";
+   color: var(--accent-ink);
+   font: 400 var(--text-year) / 1 var(--font-display);
+   font-variant-numeric: lining-nums;
+   letter-spacing: -0.01em;
+   paint-order: stroke fill;
+   -webkit-text-stroke: 2px var(--accent-ink);
+ }
+ 
+ /* Node on the spine */
+ .milestone::after {
+   grid-column: 1;
+   grid-row: 1;
+   content: "";
+   width: var(--node-size);
+   height: var(--node-size);
+   margin-block-start: calc(var(--text-year) / 2 - var(--node-size) / 2);
+   background: var(--accent);
+   border: 3px solid var(--accent-ink);
+   border-radius: 50%;
+   box-shadow: 0 0 0 0.3rem var(--bg);
+ }
+ 
+ .card {
+   position: relative;
+   display: grid;
+   grid-column: 2;
+   grid-row: 2;
+   gap: var(--space-s);
+   padding: var(--space-m);
+   background: var(--surface);
+   border: var(--outline) solid var(--line);
+   border-radius: 0.3rem;
+   box-shadow: var(--cel-offset) var(--cel-offset) 0 var(--cel);
+   container-type: inline-size;
+ }
+ 
+ .card__header {
+   display: grid;
+   gap: var(--space-2xs);
+ }
+ 
+ .card__meta {
+   display: flex;
+   justify-content: space-between;
+   gap: var(--space-s);
+   color: var(--ink-soft);
+   font-size: var(--text-s);
+   font-variant-numeric: tabular-nums;
+ }
+ 
+ .card__meta::after {
+   content: counter(frame, decimal-leading-zero) " / 18";
+ }
+ 
+ .card h3 {
+   font-size: var(--text-xl);
+ }
+ 
+ .card__native {
+   color: var(--ink-soft);
+   font-size: var(--text-s);
+ }
+ 
+ /* Placeholder images: swap each .placeholder for an <img> with the same
+         sizing. Both share the 16:9 box defined here. */
+ .media {
+   display: grid;
+   gap: var(--space-2xs);
+ }
+ 
+ .media :is(img, .placeholder) {
+   width: 100%;
+   aspect-ratio: 16 / 9;
+   object-fit: cover;
+   border: var(--outline) solid var(--line);
+   border-radius: 0.2rem;
+ }
+ 
+ .placeholder {
+   display: grid;
+   place-items: center;
+   background: repeating-linear-gradient(135deg,
+       var(--accent-tint) 0 0.75rem,
+       color-mix(in oklab, var(--accent) 22%, var(--surface)) 0.75rem 1.5rem);
+   font-size: var(--text-s);
+   font-weight: 700;
+ }
+ 
+ .placeholder>span {
+   padding: var(--space-3xs) var(--space-xs);
+   background: var(--surface);
+   border: var(--outline) solid var(--line);
+   border-radius: 0.2rem;
+ }
+ 
+ .media figcaption {
+   color: var(--ink-soft);
+   font-size: var(--text-s);
+ }
+ 
+ /* Expandable facts */
+ .card details {
+   padding-block-start: var(--space-2xs);
+   border-block-start: var(--outline) solid var(--line);
+ }
+ 
+ .card summary {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: var(--space-s);
+   padding-block: var(--space-2xs);
+   font-weight: 700;
+   list-style: none;
+   cursor: pointer;
+ }
+ 
+ .card summary::-webkit-details-marker {
+   display: none;
+ }
+ 
+ .card summary:hover {
+   color: var(--accent-ink);
+ }
+ 
+ /* A plus sign drawn with two gradients; the upright bar collapses when open */
+ .card summary::after {
+   content: "";
+   flex: none;
+   width: 0.9rem;
+   height: 0.9rem;
+   background:
+     linear-gradient(currentcolor, currentcolor) center / 100% 2px no-repeat,
+     linear-gradient(currentcolor, currentcolor) center / 2px 100% no-repeat;
+   transition: background-size 0.25s ease;
+ }
+ 
+ .card details[open] summary::after {
+   background-size: 100% 2px, 2px 0;
+ }
+ 
+ .facts {
+   display: grid;
+   gap: var(--space-3xs) var(--space-s);
+   margin-block: var(--space-2xs) var(--space-xs);
+   font-size: var(--text-s);
+ }
+ 
+ .facts dt {
+   color: var(--ink-soft);
+   font-weight: 700;
+ }
+ 
+ .facts dd {
+   margin: 0 0 var(--space-2xs);
+ }
+ 
+ @container (min-width: 26rem) {
+   .facts {
+     grid-template-columns: max-content minmax(0, 1fr);
+   }
+   
+   .facts dd {
+     margin: 0;
+   }
+ }
+ 
+ .source {
+   color: var(--ink-soft);
+   font-size: var(--text-s);
+ }
+ 
+ @supports selector(::details-content) {
+   .card details {
+     interpolate-size: allow-keywords;
+   }
+   
+   .card details::details-content {
+     block-size: 0;
+     overflow: clip;
+     transition: block-size 0.3s ease, content-visibility 0.3s allow-discrete;
+   }
+   
+   .card details[open]::details-content {
+     block-size: auto;
+   }
+ }
+ 
+ @media (min-width: 52rem) {
+   
+   /* Alternate sides. Eras with an even position start on the right so the
+           pattern keeps alternating across the whole page. */
+   .milestone:nth-child(even),
+   .era:nth-child(even) .milestone:nth-child(odd) {
+     --card-col: 3;
+     --year-col: 1;
+     --year-align: end;
+     --connector-start: auto;
+     --connector-end: 100%;
+     --dir: 1;
+   }
+   
+   .era:nth-child(even) .milestone:nth-child(even) {
+     --card-col: 1;
+     --year-col: 3;
+     --year-align: start;
+     --connector-start: 100%;
+     --connector-end: auto;
+     --dir: -1;
+   }
+   
+   .milestone {
+     --dir: -1;
+     
+     grid-template-columns: minmax(0, 1fr) var(--node-size) minmax(0, 1fr);
+     column-gap: var(--gap);
+     align-items: start;
+   }
+   
+   .milestone::before {
+     grid-column: var(--year-col);
+     justify-self: var(--year-align);
+     position: sticky;
+     inset-block-start: calc(var(--bar-height) + var(--space-l));
+   }
+   
+   .milestone::after {
+     grid-column: 2;
+     align-self: center;
+     margin-block-start: 0;
+   }
+   
+   .card {
+     grid-column: var(--card-col);
+     grid-row: 1;
+   }
+   
+   /* Short line from the card to the node */
+   .card::after {
+     content: "";
+     position: absolute;
+     inset-block-start: 50%;
+     inset-inline: var(--connector-start) var(--connector-end);
+     width: var(--gap);
+     height: var(--outline);
+     background: var(--line);
+   }
+ }
+ 
+ 
+ /* 7. Outro and footer
+         ========================================================================== */
+ 
+ .outro {
+   margin-block-start: var(--space-xl);
+   padding: var(--space-2xl) var(--gutter);
+   background: var(--surface-sunk);
+   border-block: var(--outline) solid var(--line);
+ }
+ 
+ .outro__inner {
+   display: grid;
+   gap: var(--space-m);
+   max-width: var(--page-max);
+   margin-inline: auto;
+ }
+ 
+ .outro h2 {
+   font-size: var(--text-xl);
+ }
+ 
+ .stats {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+   gap: var(--space-l);
+   margin-block-start: var(--space-xs);
+ }
+ 
+ .stats>div {
+   display: grid;
+   gap: var(--space-2xs);
+   padding: var(--space-m);
+   background: var(--surface);
+   border: var(--outline) solid var(--line);
+   border-radius: 0.3rem;
+   box-shadow: var(--cel-offset) var(--cel-offset) 0 var(--spine-fill);
+ }
+ 
+ .stats dt {
+   color: var(--ink-soft);
+   font-size: var(--text-s);
+ }
+ 
+ .stats dd {
+   margin: 0;
+   font: 400 var(--text-xl) / 1.1 var(--font-display);
+ }
+ 
+ .site-footer {
+   padding: var(--space-xl) var(--gutter);
+   color: var(--ink-soft);
+   font-size: var(--text-s);
+ }
+ 
+ .site-footer__inner {
+   display: grid;
+   gap: var(--space-xs);
+   max-width: var(--page-max);
+   margin-inline: auto;
+ }
+ 
+ .back-to-top {
+   position: fixed;
+   bottom: 2rem;
+   right: 2rem;
+   z-index: 100;
+   width: var(--space-xl);
+   height: var(--space-xl);
+   background: var(--bg);
+   border: var(--outline) solid;
+   border-radius: 50%;
+   animation: pulse 5s ease-out 1s infinite backwards;
+ }
+ 
+ .back-to-top::before,
+ .back-to-top::after {
+   content: "";
+   position: absolute;
+   top: 40%;
+   width: 1.45rem;
+   height: 0.15rem;
+   background: var(--ink-soft);
+   border-radius: 0.2rem;
+ }
+ 
+ .back-to-top::before {
+   left: 0.2rem;
+   rotate: -50deg;
+ }
+ 
+ .back-to-top::after {
+   right: 0.2rem;
+   rotate: 50deg;
+ }
+ 
+ .back-to-top a {
+   display: block;
+   aspect-ratio: 1/1;
+   width: 100%;
+   border-radius: inherit;
+ }
+ 
+ 
+ @Keyframes pulse {
+   50% {
+     box-shadow: 0 0 10px #333;
+   }
+ }
+ 
+ 
+ /* 8. Scroll-linked motion
+         Everything below is progressive enhancement. Browsers without
+         animation-timeline, and visitors who ask for reduced motion, get the
+         finished page: full spine, painted years, cards in place.
+         ========================================================================== */
+ 
+ @supports (animation-timeline: view()) {
+   @media (prefers-reduced-motion: no-preference) {
+     
+     /* The spine is inked down to the middle of the screen */
+     .timeline::after {
+       animation: draw-spine linear both;
+       animation-timeline: --timeline;
+       animation-range: cover 50vh cover calc(100% - 50vh);
+     }
+     
+     /* Each year is outlined first, then painted in as it nears the middle */
+     .milestone::before {
+       animation: paint-year linear both;
+       animation-timeline: --milestone;
+       animation-range: cover 20% cover 50%;
+     }
+     
+     .milestone::after {
+       animation: light-node linear both;
+       animation-timeline: --milestone;
+       animation-range: cover 40% cover 50%;
+     }
+     
+     /* Cards settle into place like a cel laid on the background */
+     .card {
+       animation: lay-cel linear both;
+       animation-timeline: --milestone;
+       animation-range: entry 0% entry 90%;
+     }
+   }
+ }
+ 
+ @keyframes draw-spine {
+   from {
+     height: 0;
+   }
+ }
+ 
+ @keyframes paint-year {
+   from {
+     color: transparent;
+   }
+ }
+ 
+ @keyframes light-node {
+   from {
+     background: var(--bg);
+   }
+ }
+ 
+ @keyframes lay-cel {
+   from {
+     opacity: 0;
+     translate: calc(var(--dir) * 2.5rem) 1.5rem;
+     scale: 0.97;
+     box-shadow: 0 0 0 0 var(--cel);
+   }
+ }
+ 
+ @media (prefers-reduced-motion: reduce) {
+   
+   .card details::details-content,
+   .card summary::after {
+     transition: none;
+   }
+ }
